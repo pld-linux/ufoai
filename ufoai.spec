@@ -48,7 +48,9 @@ against your friends with multiplayer functionality.
 %build
 CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 %configure \
+%ifarch %{x8664}
 	--enable-mmx \
+%endif
 	--with-curses \
 	--with-shaders
 %{__make}
