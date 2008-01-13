@@ -1,4 +1,4 @@
-Summary:	UFO: ALIEN INVASION is a squad-based tactical strategy game in the tradition of the old X-COM PC games
+Summary:	"UFO: Alien Invasion" is a squad-based tactical strategy game in the tradition of the old X-COM PC games
 Name:		ufoai
 Version:	2.2
 Release:	0.1
@@ -7,6 +7,7 @@ Group:		X11/Applications/Games/Strategy
 URL:		http://ufoai.sourceforge.net/
 Source0:	http://dl.sourceforge.net/ufoai/%{name}-%{version}-source.tar.bz2
 # Source0-md5:	67347e7124fe5679c672a392161a6611
+Source1:	%{name}.desktop
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_mixer-devel
@@ -26,7 +27,7 @@ defending Earth from a brutal alien enemy. Build up your bases,
 prepare your team, and dive head-first into the fast and flowing
 turn-based combat.
 
-UFO: ALIEN INVASION is a squad-based tactical strategy game in the
+"UFO: Alien Invasion" is a squad-based tactical strategy game in the
 tradition of the old X-COM PC games, but with a twist. This game
 combines military realism with hard science-fiction and the weirdness
 of an alien invasion. The carefully constructed turn-based system
@@ -39,7 +40,7 @@ weapons for your own ends. You will produce unique items and use them
 in combat against your enemies. If you like, you can even use them
 against your friends with multiplayer functionality.
 
-'UFO: Alien Invasion'. Endless hours of gameplay -- absolutely free.
+"UFO: Alien Invasion". Endless hours of gameplay -- absolutely free.
 
 %prep
 %setup -q -n %{name}-%{version}-source
@@ -56,7 +57,7 @@ CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/%{name}/base,%{_datadir}/%{name}/base/i18n}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/%{name}/base,%{_datadir}/%{name}/base/i18n,%{_pixmapsdir},%{_desktopdir}}
 install base/game.so $RPM_BUILD_ROOT%{_libdir}/%{name}/base/game.so
 install ufo $RPM_BUILD_ROOT%{_libdir}/%{name}/ufoai
 install ufoded $RPM_BUILD_ROOT%{_libdir}/%{name}/ufoaided
@@ -74,13 +75,17 @@ cd %{_libdir}/%{name}
 ./ufoaided
 EOF
 
-install %{name} $RPM_BUILD_ROOT%{_bindir}/%{name}
-install %{name}ded $RPM_BUILD_ROOT%{_bindir}/%{name}ded
+install ufoai $RPM_BUILD_ROOT%{_bindir}/ufoai
+install ufoaided $RPM_BUILD_ROOT%{_bindir}/ufoaided
 
 ln -s %{_datadir}/%{name}/base/i18n $RPM_BUILD_ROOT%{_libdir}/%{name}/base/i18n
 for i in 0base 0maps 0media 0models 0music 0pics 0snd 0ufos; do
     ln -s %{_datadir}/%{name}/base/$i.pk3 $RPM_BUILD_ROOT%{_libdir}/%{name}/base/$i.pk3
 done
+
+# install icon and desktop file
+install src/ports/linux/installer/data/ufo.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.xpm
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -100,3 +105,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/base
 %{_datadir}/%{name}/base/i18n
+%{_pixmapsdir}/%{name}.xpm
+%{_desktopdir}/%{name}.desktop
