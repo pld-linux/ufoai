@@ -62,17 +62,17 @@ install base/game.so $RPM_BUILD_ROOT%{_libdir}/%{name}/base/game.so
 install ufo $RPM_BUILD_ROOT%{_libdir}/%{name}/ufoai
 install ufoded $RPM_BUILD_ROOT%{_libdir}/%{name}/ufoaided
 install ufo2map $RPM_BUILD_ROOT%{_bindir}/ufoai2map
-cp -rf base/i18n $RPM_BUILD_ROOT%{_datadir}/%{name}/base
+cp -a base/i18n $RPM_BUILD_ROOT%{_datadir}/%{name}/base
 
-cat > ufoai << EOF
+cat > ufoai << 'EOF'
 #!/bin/sh
 cd %{_libdir}/%{name}
-./ufoai
+exec ./ufoai
 EOF
-cat > ufoaided << EOF
+cat > ufoaided << 'EOF'
 #!/bin/sh
 cd %{_libdir}/%{name}
-./ufoaided
+exec ./ufoaided
 EOF
 
 install ufoai $RPM_BUILD_ROOT%{_bindir}/ufoai
@@ -80,7 +80,7 @@ install ufoaided $RPM_BUILD_ROOT%{_bindir}/ufoaided
 
 ln -s %{_datadir}/%{name}/base/i18n $RPM_BUILD_ROOT%{_libdir}/%{name}/base/i18n
 for i in 0base 0maps 0media 0models 0music 0pics 0snd 0ufos; do
-    ln -s %{_datadir}/%{name}/base/$i.pk3 $RPM_BUILD_ROOT%{_libdir}/%{name}/base/$i.pk3
+	ln -s %{_datadir}/%{name}/base/$i.pk3 $RPM_BUILD_ROOT%{_libdir}/%{name}/base/$i.pk3
 done
 
 # install icon and desktop file
