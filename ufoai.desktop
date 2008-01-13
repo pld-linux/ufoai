@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=UFO: Alien Invasion
+Exec=ufoai
+Icon=ufoai
+Terminal=false
+Encoding=UTF-8
+Categories=Game;StrategyGame;
+Type=Application
