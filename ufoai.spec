@@ -1,7 +1,9 @@
+# TODO:
+# - pl summary and description
 Summary:	"UFO: Alien Invasion" is a squad-based tactical strategy game in the tradition of the old X-COM PC games
 Name:		ufoai
 Version:	2.2.1
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games/Strategy
 URL:		http://ufoai.sourceforge.net/
