@@ -1,15 +1,14 @@
-# TODO:
-# - pl summary and description
-Summary:	"UFO: Alien Invasion" is a squad-based tactical strategy game in the tradition of the old X-COM PC games
+Summary:	"UFO: Alien Invasion" - squad-based tactical strategy game in the tradition of the old X-COM PC games
+Summary(pl.UTF-8):	"UFO: Alien Invasion" - gra strategiczna utrzymana w tradycji starych gier X-COM z PC
 Name:		ufoai
 Version:	2.2.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games/Strategy
-URL:		http://ufoai.sourceforge.net/
 Source0:	http://dl.sourceforge.net/ufoai/%{name}-%{version}-source.tar.bz2
 # Source0-md5:	d3d1e45056fe87efbd9a0f000779ab17
 Source1:	%{name}.desktop
+URL:		http://ufoai.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_mixer-devel
@@ -43,6 +42,26 @@ in combat against your enemies. If you like, you can even use them
 against your friends with multiplayer functionality.
 
 "UFO: Alien Invasion". Endless hours of gameplay -- absolutely free.
+
+%description -l pl.UTF-8
+Jest rok 2084. Kierujesz tajną organizacją, która ma obronić Ziemię
+przed brutalnymi wrogami. Buduj swoje bazy, przygotuj swój zespół i
+wpadnij w wir szybkiej turowej walki.
+
+"UFO: Alien Invasion" to oparta o oddziały gra strategiczna utrzymana
+w tradycji starych gier X-COM z PC, ale z pewnymi zmianami. Gra łączy
+realizm militarny z ciężkim science-fiction i dziwnością inwacji
+wroga. Uważnie skonstruowany system turowy daje kontrolę nad oddziałem
+zachowując poczucie kroku i niebezpieczeństwa.
+
+W ciągu długiego czasu gracz musi prowadzić badania narażając się
+wrogom, aby odkryć ich tajemnicze cele i użyć ich potężnych broni dla
+własnych potrzeb. Gracz wytworzy unikalne przedmioty i wykorzysta je w
+walce przeciwko swoim wrogom. Można także używać ich przeciwko
+przyjaciołom w przypadku gry dla wielu graczy.
+
+"UFO: Alien Invasion" to niekończące się godziny gry całkowicie za
+darmo.
 
 %prep
 %setup -q -n %{name}-%{version}-source
