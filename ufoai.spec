@@ -50,7 +50,7 @@ wpadnij w wir szybkiej turowej walki.
 
 "UFO: Alien Invasion" to oparta o oddziały gra strategiczna utrzymana
 w tradycji starych gier X-COM z PC, ale z pewnymi zmianami. Gra łączy
-realizm militarny z ciężkim science-fiction i dziwnością inwacji
+realizm militarny z ciężkim science-fiction i dziwnością inwazji
 wroga. Uważnie skonstruowany system turowy daje kontrolę nad oddziałem
 zachowując poczucie kroku i niebezpieczeństwa.
 
