@@ -1,23 +1,32 @@
 Summary:	"UFO: Alien Invasion" - squad-based tactical strategy game in the tradition of the old X-COM PC games
 Summary(pl.UTF-8):	"UFO: Alien Invasion" - gra strategiczna utrzymana w tradycji starych gier X-COM z PC
 Name:		ufoai
-Version:	2.2.1
-Release:	1
+Version:	2.3
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games/Strategy
-Source0:	http://dl.sourceforge.net/ufoai/%{name}-%{version}-source.tar.bz2
-# Source0-md5:	d3d1e45056fe87efbd9a0f000779ab17
+Source0:	http://downloads.sourceforge.net/ufoai/%{name}-%{version}-source.tar.bz2
+# Source0-md5:	9d180ed896a58fe0e514601cd7637dc1
 Source1:	%{name}.desktop
 URL:		http://ufoai.sourceforge.net/
+BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel
+BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	SDL_ttf-devel
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
+BuildRequires:	gtkglext-devel
+BuildRequires:	gtksourceview2-devel
 BuildRequires:	libjpeg-devel
+BuildRequires:	libogg-devel
 BuildRequires:	libpng-devel
+BuildRequires:	libtheora-devel
+BuildRequires:	libvorbis-devel
 BuildRequires:	ncurses-devel
+BuildRequires:	p7zip-standalone
+BuildRequires:	xvid-devel
 BuildRequires:	zlib-devel
 Requires:	ufoai-data = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -69,11 +78,7 @@ darmo.
 %build
 CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 %configure \
-%ifarch %{x8664}
-	--enable-mmx \
-%endif
-	--with-curses \
-	--with-shaders
+	--with-curses
 %{__make}
 %{__make} lang
 
@@ -107,7 +112,7 @@ for i in 0base 0maps 0media 0models 0music 0pics 0snd 0ufos; do
 done
 
 # install icon and desktop file
-install src/ports/linux/installer/data/ufo.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.xpm
+install debian/ufoai.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.xpm
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
 %clean
