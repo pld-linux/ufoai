@@ -8,6 +8,7 @@ Group:		X11/Applications/Games/Strategy
 Source0:	http://downloads.sourceforge.net/ufoai/%{name}-%{version}-source.tar.bz2
 # Source0-md5:	9d180ed896a58fe0e514601cd7637dc1
 Source1:	%{name}.desktop
+Patch0:		%{name}-link.patch
 URL:		http://ufoai.sourceforge.net/
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-GLU-devel
@@ -74,12 +75,14 @@ darmo.
 
 %prep
 %setup -q -n %{name}-%{version}-source
+%patch0 -p1
 
 %build
 CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 %configure \
 	--with-curses
-%{__make}
+%{__make} \
+	RADIANT_LIBS="-ltinfo"
 %{__make} lang
 
 %install
