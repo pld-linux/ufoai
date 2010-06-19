@@ -2,7 +2,7 @@ Summary:	"UFO: Alien Invasion" - squad-based tactical strategy game in the tradi
 Summary(pl.UTF-8):	"UFO: Alien Invasion" - gra strategiczna utrzymana w tradycji starych gier X-COM z PC
 Name:		ufoai
 Version:	2.3
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games/Strategy
 Source0:	http://downloads.sourceforge.net/ufoai/%{name}-%{version}-source.tar.bz2
@@ -107,8 +107,8 @@ install ufoai $RPM_BUILD_ROOT%{_bindir}/ufoai
 install ufoaided $RPM_BUILD_ROOT%{_bindir}/ufoaided
 
 ln -s %{_datadir}/%{name}/base/i18n $RPM_BUILD_ROOT%{_libdir}/%{name}/base/i18n
-for i in 0base 0maps 0media 0models 0music 0pics 0snd 0ufos; do
-	ln -s %{_datadir}/%{name}/base/$i.pk3 $RPM_BUILD_ROOT%{_libdir}/%{name}/base/$i.pk3
+for i in base maps materials media models music pics shaders snd ufos; do
+	ln -s %{_datadir}/%{name}/base/0$i.pk3 $RPM_BUILD_ROOT%{_libdir}/%{name}/base/0$i.pk3
 done
 
 # install icon and desktop file
@@ -129,7 +129,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}/base
 %attr(755,root,root) %{_libdir}/%{name}/base/game.so
 %attr(755,root,root) %{_libdir}/%{name}/base/i18n
-%attr(755,root,root) %{_libdir}/%{name}/base/*.pk3
+%attr(755,root,root) %{_libdir}/%{name}/base/0*.pk3
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/base
 %{_datadir}/%{name}/base/i18n
