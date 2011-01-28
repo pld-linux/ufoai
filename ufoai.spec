@@ -27,6 +27,7 @@ BuildRequires:	libtheora-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	p7zip-standalone
+BuildRequires:	pkgconfig
 BuildRequires:	xvid-devel
 BuildRequires:	zlib-devel
 Requires:	ufoai-data = %{version}
