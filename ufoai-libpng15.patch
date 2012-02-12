@@ -1,0 +1,10 @@
+--- ufoai-2.3.1-source/src/shared/images.c~	2010-11-29 17:46:35.000000000 +0100
++++ ufoai-2.3.1-source/src/shared/images.c	2012-02-12 12:22:49.348930582 +0100
+@@ -32,6 +32,7 @@
+ 
+ #include <jpeglib.h>
+ #include <png.h>
++#include <zlib.h>
+ 
+ /** image formats, tried in this order */
+ static char *IMAGE_TYPES[] = { "tga", "png", "jpg", NULL };
