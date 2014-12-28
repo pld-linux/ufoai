@@ -18,7 +18,7 @@ BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	SDL_ttf-devel
 BuildRequires:	curl-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gtkglext-devel
 BuildRequires:	gtksourceview2-devel
 BuildRequires:	libjpeg-devel
