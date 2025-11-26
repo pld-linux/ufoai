@@ -1,0 +1,13 @@
+--- ufoai-2.3.1-source/src/client/renderer/r_gl.h.orig	2010-11-29 17:46:35.000000000 +0100
++++ ufoai-2.3.1-source/src/client/renderer/r_gl.h	2025-11-26 14:26:04.725562012 +0100
+@@ -28,6 +28,10 @@
+ 
+ #include <SDL_opengl.h>
+ 
++#ifndef GL_FRAMEBUFFER_INCOMPLETE_DUPLICATE_ATTACHMENT_EXT
++#define GL_FRAMEBUFFER_INCOMPLETE_DUPLICATE_ATTACHMENT_EXT 0x8CD8
++#endif
++
+ /* internally defined convenience constant */
+ #define GL_TANGENT_ARRAY -1
+ #define GL_NEXT_VERTEX_ARRAY -2

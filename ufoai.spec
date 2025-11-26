@@ -10,6 +10,7 @@ Source0:	http://downloads.sourceforge.net/ufoai/%{name}-%{version}-source.tar.bz
 Source1:	%{name}.desktop
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-libpng15.patch
+Patch2:		glext-define.patch
 URL:		http://ufoai.sourceforge.net/
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-GLU-devel
@@ -79,6 +80,7 @@ darmo.
 %setup -q -n %{name}-%{version}-source
 %patch -P0 -p1
 %patch -P1 -p1
+%patch -P2 -p1
 
 # needed to build properly
 mkdir base
