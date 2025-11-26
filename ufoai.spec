@@ -86,7 +86,7 @@ darmo.
 mkdir base
 
 %build
-CFLAGS="%{rpmcflags} -I/usr/include/ncurses -DNCURSES_INTERNALS"
+CFLAGS="%{rpmcflags} -I/usr/include/ncurses -DNCURSES_INTERNALS -fcommon"
 %configure \
 	--with-curses
 %{__make} \
